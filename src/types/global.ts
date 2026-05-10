@@ -1,19 +1,21 @@
-import { Message } from 'discord.js';
+import { Message, ChatInputCommandInteraction, SlashCommandBuilder } from 'discord.js';
 import { Client } from '../structure/Client';
 
 export interface CommandPayload {
     client: Client<true>,
-    message: Message<true>,
-    args: string[],
+    context: Message<true> | ChatInputCommandInteraction,
+    args?: string[],
 }
 
 export interface Command {
     name: string,
     aliases: string[],
-    execute: (payload: CommandPayload) => void,
+    slashCommandData: SlashCommandBuilder,
+    execute: (payload: CommandPayload) => unknown,
 }
 
 export interface CommandConstructor {
     name: string,
     aliases?: string[],
+    slashCommandData?: SlashCommandBuilder,
 }
