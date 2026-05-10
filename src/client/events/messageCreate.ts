@@ -25,7 +25,7 @@ export default class MessageCreateEvent extends Event {
 
             return command.execute({
                 client,
-                message,
+                context: message,
                 args,
             });
         }
