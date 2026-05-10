@@ -24,6 +24,16 @@ export class Client<R extends boolean> extends DiscordClient<R> {
 
             this.commands.set(cmd.name, cmd);
         }
+
+        this.loadSlashCmds();
+    }
+
+    private loadSlashCmds() {
+        const allCommands = this.commands.filter(cmd => cmd.slashCommandData);
+
+        for (const command of allCommands.values()) {
+            this.application!.commands.create(command.slashCommandData);
+        }
     }
 
     private async loadEvents() {
