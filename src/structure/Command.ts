@@ -1,6 +1,6 @@
 import { CommandPayload, CommandConstructor } from '../types/global';
 import { SlashCommandBuilder } from 'discord.js';
-import { NoInitializer } from 'archangel.js/dist/archangel/noInitializer';
+import { NoInitializer } from 'archangel.js';
 
 export abstract class Command extends NoInitializer {
     public name: string;
