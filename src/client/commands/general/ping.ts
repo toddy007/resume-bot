@@ -14,6 +14,6 @@ export default class PingCommand extends Command {
     }
 
     public async execute({ client, context }: CommandPayload) {
-        this.reply(context, 'Pong! `' + client.ws.ping + 'ms`');
+        context.reply('Pong! `' + client.ws.ping + 'ms`');
     }
 }
