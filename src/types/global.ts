@@ -1,10 +1,11 @@
-import { Message, ChatInputCommandInteraction, SlashCommandBuilder } from 'discord.js';
+import { SlashCommandBuilder } from 'discord.js';
 import { Client } from '../structure/Client';
+import { CommandContext } from 'archangel.js';
 
 export interface CommandPayload {
     client: Client<true>,
-    context: Message<true> | ChatInputCommandInteraction,
-    args?: string[],
+    context: CommandContext,
+    args: string[],
 }
 
 export interface Command {

@@ -1,6 +1,7 @@
 import { Event } from '../../structure/Event';
 import { Events, BaseInteraction } from 'discord.js';
 import { client } from '../..';
+import { createCommandContext } from 'archangel.js';
 
 export default class InteractionCreateEvent extends Event {
     public name = Events.InteractionCreate;
@@ -10,12 +11,13 @@ export default class InteractionCreateEvent extends Event {
             return;
 
         const command = client.commands.get(interaction.commandName);
-        if (!command) 
+        if (!command)
             throw new Error(`No command matching ${interaction.commandName} was found.`);
 
         return command.execute({
             client,
-            context: interaction,
+            context: createCommandContext(interaction),
+            args: [],
         });
     }
 }

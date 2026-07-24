@@ -1,18 +1,16 @@
 import { CommandPayload, CommandConstructor } from '../types/global';
 import { SlashCommandBuilder } from 'discord.js';
-import { NoInitializer } from 'archangel.js';
 
-export abstract class Command extends NoInitializer {
+export abstract class Command {
     public name: string;
     public aliases?: string[];
     public slashCommandData?: SlashCommandBuilder;
-    
+
     public constructor({
         name,
         aliases,
         slashCommandData,
     }: CommandConstructor) {
-        super();
         this.name = name;
         this.aliases = aliases ?? [];
         this.slashCommandData = slashCommandData;

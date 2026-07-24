@@ -4,8 +4,9 @@
   "description": "A base to create Discord bots with Typescript",
   "main": "src/index.ts",
   "dependencies": {
-    "archangel.js": "^0.1.1",
+    "archangel.js": "^1.1.0",
     "discord.js": "^14.15.3",
+    "openai": "^6.49.0",
     "tiny-glob": "^0.2.9",
     "tsx": "^4.7.0",
     "typescript": "^5.3.3"
